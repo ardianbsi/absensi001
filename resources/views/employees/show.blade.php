@@ -120,41 +120,41 @@
                                 ];
                             @endphp
                             
-                            <div class="row gx-3 gy-3 mb-4">
+                            <div class="row gx-2 gy-2 mb-4">
                                 <div class="col-6 col-md-4">
-                                    <div class="stat-item">
-                                        <div class="stat-item-value text-primary">{{ $summaryCounts['total'] }}</div>
-                                        <div class="stat-item-label">Total Records</div>
+                                    <div class="p-3 bg-light rounded text-center">
+                                        <div class="fw-bold text-primary fs-4">{{ $summaryCounts['total'] }}</div>
+                                        <div class="text-muted small">Total Records</div>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-4">
-                                    <div class="stat-item">
-                                        <div class="stat-item-value text-success">{{ $summaryCounts['hadir'] }}</div>
-                                        <div class="stat-item-label">Present</div>
+                                    <div class="p-3 bg-light rounded text-center">
+                                        <div class="fw-bold text-success fs-4">{{ $summaryCounts['hadir'] }}</div>
+                                        <div class="text-muted small">Present</div>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-4">
-                                    <div class="stat-item">
-                                        <div class="stat-item-value text-warning">{{ $summaryCounts['telat'] }}</div>
-                                        <div class="stat-item-label">Late</div>
+                                    <div class="p-3 bg-light rounded text-center">
+                                        <div class="fw-bold text-warning fs-4">{{ $summaryCounts['telat'] }}</div>
+                                        <div class="text-muted small">Late</div>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-4">
-                                    <div class="stat-item">
-                                        <div class="stat-item-value text-danger">{{ $summaryCounts['alpha'] }}</div>
-                                        <div class="stat-item-label">Absent</div>
+                                    <div class="p-3 bg-light rounded text-center">
+                                        <div class="fw-bold text-danger fs-4">{{ $summaryCounts['alpha'] }}</div>
+                                        <div class="text-muted small">Absent</div>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-4">
-                                    <div class="stat-item">
-                                        <div class="stat-item-value text-secondary">{{ $summaryCounts['izin'] }}</div>
-                                        <div class="stat-item-label">Permission</div>
+                                    <div class="p-3 bg-light rounded text-center">
+                                        <div class="fw-bold text-secondary fs-4">{{ $summaryCounts['izin'] }}</div>
+                                        <div class="text-muted small">Permission</div>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-4">
-                                    <div class="stat-item">
-                                        <div class="stat-item-value text-info">{{ $summaryCounts['sakit'] }}</div>
-                                        <div class="stat-item-label">Sick</div>
+                                    <div class="p-3 bg-light rounded text-center">
+                                        <div class="fw-bold text-info fs-4">{{ $summaryCounts['sakit'] }}</div>
+                                        <div class="text-muted small">Sick</div>
                                     </div>
                                 </div>
                             </div>
@@ -233,21 +233,4 @@
         </div>
     </div>
 
-    <style>
-        .stat-item {
-            text-align: center;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            background-color: #f8f9fa;
-        }
-        .stat-item-value {
-            font-size: 1.75rem;
-            font-weight: bold;
-            line-height: 1;
-        }
-        .stat-item-label {
-            font-size: 0.875rem;
-            color: #6c757d;
-            margin-top: 0.5rem;
-        }
-    </style>
+@endsection
