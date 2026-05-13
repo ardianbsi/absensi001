@@ -18,13 +18,10 @@ class PayrollPeriod extends Model
         'closed_at',
     ];
 
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
             'start_date' => 'date',
             'end_date' => 'date',
             'is_closed' => 'boolean',
             'closed_at' => 'datetime',
-        ];
-    }
+    ];
 }

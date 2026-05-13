@@ -26,14 +26,11 @@ class Shift extends Model
         'description',
     ];
 
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
             'clock_in_time' => 'string',
             'clock_out_time' => 'string',
             'is_active' => 'boolean',
-        ];
-    }
+    ];
 
     public function employees(): HasMany
     {

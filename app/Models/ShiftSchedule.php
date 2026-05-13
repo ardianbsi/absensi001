@@ -19,13 +19,10 @@ class ShiftSchedule extends Model
         'is_override',
     ];
 
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
             'date' => 'date',
             'is_override' => 'boolean',
-        ];
-    }
+    ];
 
     public function employee(): BelongsTo
     {

@@ -26,14 +26,11 @@ class OvertimeRequest extends Model
         'approval_reason',
     ];
 
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
             'date' => 'date',
             'start_time' => 'datetime',
             'end_time' => 'datetime',
-        ];
-    }
+    ];
 
     public function employee(): BelongsTo
     {

@@ -24,7 +24,7 @@ class AttendanceController extends Controller
         $query = Attendance::with(['employee.user', 'employee.department']);
 
         if ($request->filled('date')) {
-            $query->whereDate('attendance_date', $request->date);
+            $query->whereDate('date', $request->date);
         }
 
         if ($request->filled('employee_id')) {
@@ -52,7 +52,7 @@ class AttendanceController extends Controller
     {
         $activeAttendance = Attendance::where('employee_id', auth()->user()->employee?->id)
             ->whereNull('check_out')
-            ->whereDate('attendance_date', today())
+            ->where('date', today()->toDateString())
             ->first();
 
         return view('attendances.scan', compact('activeAttendance'));
@@ -68,7 +68,7 @@ class AttendanceController extends Controller
             }
 
             $existing = Attendance::where('employee_id', $employee->id)
-                ->whereDate('attendance_date', today())
+                ->where('date', today()->toDateString())
                 ->whereNotNull('check_in')
                 ->first();
 

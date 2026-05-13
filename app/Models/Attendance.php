@@ -41,16 +41,13 @@ class Attendance extends Model
         'total_work_hours',
     ];
 
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
             'date' => 'date',
             'clock_in' => 'datetime',
             'clock_out' => 'datetime',
             'is_late' => 'boolean',
             'is_early_leave' => 'boolean',
-        ];
-    }
+    ];
 
     public function employee(): BelongsTo
     {

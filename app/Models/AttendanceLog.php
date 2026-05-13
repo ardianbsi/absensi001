@@ -23,12 +23,9 @@ class AttendanceLog extends Model
         'notes',
     ];
 
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
             'timestamp' => 'datetime',
-        ];
-    }
+    ];
 
     public function attendance(): BelongsTo
     {

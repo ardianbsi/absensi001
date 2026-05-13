@@ -35,21 +35,13 @@ class EmployeeService
         return $employee->delete();
     }
 
-    public function getAttendanceSummary(Employee $employee): array
+    public function getAttendanceSummary(Employee $employee)
     {
-        $attendances = $employee->attendances()
-            ->whereMonth('date', now()->month)
-            ->whereYear('date', now()->year)
+        return $employee->attendances()
+            ->whereDate('date', '>=', now()->subDays(30)->toDateString())
+            ->whereDate('date', '<=', now()->toDateString())
+            ->orderByDesc('date')
             ->get();
-
-        return [
-            'total' => $attendances->count(),
-            'hadir' => $attendances->where('status', 'hadir')->count(),
-            'telat' => $attendances->where('status', 'telat')->count(),
-            'izin' => $attendances->where('status', 'izin')->count(),
-            'sakit' => $attendances->where('status', 'sakit')->count(),
-            'alpha' => $attendances->where('status', 'alpha')->count(),
-        ];
     }
 
     public function getLeaveHistory(Employee $employee): Collection

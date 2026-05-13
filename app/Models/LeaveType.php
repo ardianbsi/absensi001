@@ -21,13 +21,10 @@ class LeaveType extends Model
         'is_active',
     ];
 
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
             'is_paid' => 'boolean',
             'is_active' => 'boolean',
-        ];
-    }
+    ];
 
     public function leaveRequests(): HasMany
     {

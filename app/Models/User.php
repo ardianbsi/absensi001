@@ -31,14 +31,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
             'email_verified_at' => 'datetime',
             'is_active' => 'boolean',
             'last_login_at' => 'datetime',
-        ];
-    }
+    ];
 
     public function employee(): HasOne
     {

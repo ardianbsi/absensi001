@@ -26,21 +26,21 @@ class AttendanceApiController extends Controller
                 ->where('employee_id', auth()->user()->employee?->id);
 
             if ($request->filled('date_from')) {
-                $query->whereDate('attendance_date', '>=', $request->date_from);
+                $query->whereDate('date', '>=', $request->date_from);
             }
 
             if ($request->filled('date_to')) {
-                $query->whereDate('attendance_date', '<=', $request->date_to);
+                $query->whereDate('date', '<=', $request->date_to);
             }
 
             if ($request->filled('month')) {
                 $month = $request->month;
                 $year = $request->year ?? now()->year;
-                $query->whereMonth('attendance_date', $month)
-                      ->whereYear('attendance_date', $year);
+                $query->whereMonth('date', $month)
+                      ->whereYear('date', $year);
             }
 
-            $attendances = $query->orderBy('attendance_date', 'desc')->paginate($request->per_page ?? 15);
+            $attendances = $query->orderBy('date', 'desc')->paginate($request->per_page ?? 15);
 
             return response()->json([
                 'success' => true,
@@ -74,7 +74,7 @@ class AttendanceApiController extends Controller
             }
 
             $existing = Attendance::where('employee_id', $employee->id)
-                ->whereDate('attendance_date', today())
+                ->where('date', today()->toDateString())
                 ->whereNotNull('check_in')
                 ->first();
 
@@ -129,7 +129,7 @@ class AttendanceApiController extends Controller
             }
 
             $attendance = Attendance::where('employee_id', $employee->id)
-                ->whereDate('attendance_date', today())
+                ->where('date', today()->toDateString())
                 ->whereNotNull('check_in')
                 ->whereNull('check_out')
                 ->first();
@@ -179,7 +179,7 @@ class AttendanceApiController extends Controller
 
             $attendance = Attendance::with(['employee.user', 'employee.department'])
                 ->where('employee_id', $employee->id)
-                ->whereDate('attendance_date', today())
+                ->where('date', today()->toDateString())
                 ->first();
 
             return response()->json([
@@ -208,7 +208,7 @@ class AttendanceApiController extends Controller
 
             $attendances = Attendance::with(['employee.user', 'employee.department'])
                 ->where('employee_id', $employee->id)
-                ->orderBy('attendance_date', 'desc')
+                ->orderBy('date', 'desc')
                 ->paginate($request->per_page ?? 20);
 
             return response()->json([

@@ -17,11 +17,8 @@ class WorkCalendar extends Model
         'is_national_holiday',
     ];
 
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
             'date' => 'date',
             'is_national_holiday' => 'boolean',
-        ];
-    }
+    ];
 }

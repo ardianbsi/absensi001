@@ -21,13 +21,10 @@ class Announcement extends Model
         'created_by',
     ];
 
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
             'published_at' => 'datetime',
             'is_active' => 'boolean',
-        ];
-    }
+    ];
 
     public function creator(): BelongsTo
     {

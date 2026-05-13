@@ -39,14 +39,11 @@ class Employee extends Model
         'is_active',
     ];
 
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
             'birth_date' => 'date',
             'join_date' => 'date',
             'is_active' => 'boolean',
-        ];
-    }
+    ];
 
     public function user(): BelongsTo
     {

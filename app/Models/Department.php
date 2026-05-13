@@ -20,12 +20,9 @@ class Department extends Model
         'is_active',
     ];
 
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
             'is_active' => 'boolean',
-        ];
-    }
+    ];
 
     public function employees(): HasMany
     {

@@ -17,11 +17,8 @@ class Holiday extends Model
         'description',
     ];
 
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
             'date' => 'date',
             'is_recurring' => 'boolean',
-        ];
-    }
+    ];
 }

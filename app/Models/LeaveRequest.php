@@ -28,14 +28,11 @@ class LeaveRequest extends Model
         'rejected_at',
     ];
 
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
             'start_date' => 'date',
             'end_date' => 'date',
             'rejected_at' => 'datetime',
-        ];
-    }
+    ];
 
     public function employee(): BelongsTo
     {

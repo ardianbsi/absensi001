@@ -20,13 +20,10 @@ class EmployeePayroll extends Model
         'is_active',
     ];
 
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
             'effective_date' => 'date',
             'is_active' => 'boolean',
-        ];
-    }
+    ];
 
     public function employee(): BelongsTo
     {
